@@ -2,7 +2,8 @@
 const { indhold } = Astro.props;
 ---
 
-<article>
-  <h2>{indhold.navn}</h2>
-  <a href={"mailto:" + indhold.email}>{indhold.email}</a>
-</article>
+<a href={`Single/id=${indhold.id}`}>
+  <article>
+    <h2>{indhold.navn}</h2>
+  </article>
+</a>
