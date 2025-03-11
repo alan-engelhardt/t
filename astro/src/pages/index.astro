@@ -1,23 +1,25 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import Card from "../components/Card.astro";
-const url = "https://pbhqptcgtunejfwsunzi.supabase.co/rest/v1/medlemmer";
-const key = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InBiaHFwdGNndHVuZWpmd3N1bnppIiwicm9sZSI6ImFub24iLCJpYXQiOjE2Nzg1MjU3NjEsImV4cCI6MTk5NDEwMTc2MX0.qPLnnbV_2nDBjczEpGDt10lr3DQgCZ54roKiy0OZXL4";
-
-const options = {
-  headers: {
-    apikey: key,
-  },
-};
-
-const columns = "?select=id,navn,email";
-const resp = await fetch(url + columns, options);
-const data = await resp.json();
-//console.log(data);
 ---
 
 <Layout>
   <main>
-    {data.map((person) => <Card indhold={person} />)}
+    <Card id="1" navn="Jonas" email="joha@kea.dk" role="admin" />
+    <Card id="2" navn="Keld" email="kemm@kea.dk" role="user" />
+    <Card id="3" navn="Alan" email="ale@kea.dk" role="user" />
+    <Card id="1" navn="Jonas" email="joha@kea.dk" role="admin" />
+    <Card id="2" navn="Keld" email="kemm@kea.dk" role="user" />
+    <Card id="3" navn="Alan" email="ale@kea.dk" role="user" />
   </main>
 </Layout>
+
+<style>
+  main {
+    max-width: 1000px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+  }
+</style>

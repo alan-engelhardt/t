@@ -1,9 +1,22 @@
 ---
-const { indhold } = Astro.props;
+const { id, navn, email, role } = Astro.props;
 ---
 
-<a href={`Single/id=${indhold.id}`}>
-  <article>
-    <h2>{indhold.navn}</h2>
-  </article>
-</a>
+<article class={role == "admin" ? "admin" : "user"}>
+  <a href={"single/" + id}>
+    <h2>{navn}</h2>
+  </a>
+  <a href={"mailto:" + email}>{email}</a>
+</article>
+
+<style>
+  article {
+    padding: 1rem;
+  }
+  .admin {
+    background-color: #eed;
+  }
+  .user {
+    background-color: #ede;
+  }
+</style>
