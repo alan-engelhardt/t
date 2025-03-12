@@ -2,7 +2,7 @@
 const { id, navn, email, role } = Astro.props;
 ---
 
-<article class={role == "admin" ? "admin" : "user"}>
+<article class={role}>
   <a href={"single/" + id}>
     <h2>{navn}</h2>
   </a>
