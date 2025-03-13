@@ -1,0 +1,19 @@
+---
+import { nan } from "astro:schema";
+
+const { navn, email, rolle, billede } = Astro.props;
+---
+
+<article>
+  <img src={`images/${billede}`} alt={navn} />
+  <h3>{navn}</h3>
+  <p>{email}</p>
+  <p>{rolle}</p>
+</article>
+
+<style>
+  article {
+    background-color: #555;
+    padding: 0.5rem;
+  }
+</style>

@@ -1,11 +1,34 @@
 ---
-import Welcome from "../components/Welcome.astro";
 import Layout from "../layouts/Layout.astro";
-
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+import Card from "../components/Card.astro";
 ---
 
 <Layout>
-  <Welcome />
+  <main>
+    <h1>Klubben</h1>
+    <h2>Medlemmer</h2>
+    <section class="medlemsliste">
+      <Card billede="billede1.png" navn="Keld" email="kemm@kea.dk" rolle="user" />
+      <Card navn="Jonas" email="joha@kea.dk" rolle="reader" />
+      <Card navn="Peter" email="peuj@kea.dk" rolle="admin" />
+      <Card navn="Keld" email="kemm@kea.dk" rolle="user" />
+      <Card navn="Jonas" email="joha@kea.dk" rolle="reader" />
+      <Card navn="Peter" email="peuj@kea.dk" rolle="admin" />
+      <Card navn="Keld" email="kemm@kea.dk" rolle="user" />
+      <Card navn="Jonas" email="joha@kea.dk" rolle="reader" />
+      <Card navn="Peter" email="peuj@kea.dk" rolle="admin" />
+    </section>
+  </main>
 </Layout>
+
+<style>
+  main {
+    max-width: 1000px;
+    margin: auto;
+  }
+  .medlemsliste {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1rem;
+  }
+</style>
