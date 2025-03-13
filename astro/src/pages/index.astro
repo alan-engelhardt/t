@@ -1,7 +1,9 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import Card from "../components/Card.astro";
+import { coerce } from "astro:schema";
 const url = "https://pbhqptcgtunejfwsunzi.supabase.co/rest/v1/medlemmer";
+const columns = "?select=id,navn,email,aktiv";
 const key = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InBiaHFwdGNndHVuZWpmd3N1bnppIiwicm9sZSI6ImFub24iLCJpYXQiOjE2Nzg1MjU3NjEsImV4cCI6MTk5NDEwMTc2MX0.qPLnnbV_2nDBjczEpGDt10lr3DQgCZ54roKiy0OZXL4";
 
 const options = {
@@ -10,7 +12,6 @@ const options = {
   },
 };
 
-const columns = "?select=id,navn,email";
 const resp = await fetch(url + columns, options);
 const data = await resp.json();
 console.log(data);
@@ -21,3 +22,10 @@ console.log(data);
     {data.map((person) => <Card indhold={person} />)}
   </main>
 </Layout>
+<style>
+  main {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+  }
+</style>

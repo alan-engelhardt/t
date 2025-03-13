@@ -5,5 +5,16 @@ const { indhold } = Astro.props;
 <a href={`Single/id=${indhold.id}`}>
   <article>
     <h2>{indhold.navn}</h2>
+    {indhold.aktiv && <p>AKTIV</p>}
   </article>
 </a>
+
+<style>
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+  article {
+    padding: 1rem;
+  }
+</style>
