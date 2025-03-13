@@ -12,9 +12,6 @@ const { id, navn, email, role, aktiv } = Astro.props;
 </article>
 
 <style>
-  a {
-    text-decoration: none;
-  }
   article {
     position: relative;
     padding: 1rem;
@@ -28,7 +25,7 @@ const { id, navn, email, role, aktiv } = Astro.props;
   .user {
     background-color: #ede;
   }
-  .read {
+  .reader {
     background-color: #dee;
   }
   .aktiv {
@@ -40,5 +37,8 @@ const { id, navn, email, role, aktiv } = Astro.props;
     margin: 0;
     padding: 5px;
     color: white;
+  }
+  a {
+    text-decoration: none;
   }
 </style>
