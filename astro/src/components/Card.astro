@@ -1,5 +1,5 @@
 ---
-const { id, navn, email, role } = Astro.props;
+const { id, navn, email, role, aktiv } = Astro.props;
 ---
 
 <article class={role}>
@@ -7,16 +7,38 @@ const { id, navn, email, role } = Astro.props;
     <h2>{navn}</h2>
   </a>
   <a href={"mailto:" + email}>{email}</a>
+  <p>{role}</p>
+  {aktiv && <p class="aktiv">AKTIV</p>}
 </article>
 
 <style>
+  a {
+    text-decoration: none;
+  }
   article {
+    position: relative;
     padding: 1rem;
+    p {
+      color: purple;
+    }
   }
   .admin {
     background-color: #eed;
   }
   .user {
     background-color: #ede;
+  }
+  .read {
+    background-color: #dee;
+  }
+  .aktiv {
+    position: absolute;
+    top: 0;
+    right: 0;
+    rotate: 10deg;
+    background-color: blueviolet;
+    margin: 0;
+    padding: 5px;
+    color: white;
   }
 </style>
