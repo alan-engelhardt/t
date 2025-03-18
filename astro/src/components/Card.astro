@@ -1,8 +1,9 @@
 ---
-const { id, navn, email, role, aktiv } = Astro.props;
+const { id, navn, email, role, aktiv, img } = Astro.props;
 ---
 
 <article class={role}>
+  <div style=`background-image: url(${img});`></div>
   <a href={"single/" + id}>
     <h2>{navn}</h2>
   </a>
@@ -17,6 +18,16 @@ const { id, navn, email, role, aktiv } = Astro.props;
     padding: 1rem;
     p {
       color: purple;
+    }
+    div {
+      width: 100%;
+      aspect-ratio: 1;
+      background-size: 100%;
+      background-position: center;
+      transition: 0.2s;
+    }
+    div:hover {
+      background-size: 120%;
     }
   }
   .admin {
