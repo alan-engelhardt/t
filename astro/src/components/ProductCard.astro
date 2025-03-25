@@ -1,10 +1,11 @@
 ---
 const { product } = Astro.props;
+const imagePath = `https://kea-alt-del.dk/t7/images/webp/640/${product.id}.webp`;
 ---
 
 <a href={"single/" + product.id}>
   <article>
-    <img src={} alt="" />
+    <img src={imagePath} alt="product img" />
     <h2>{product.productdisplayname}</h2>
     <p>{product.articletype}</p>
     <p>{product.price} kr.</p>
@@ -20,5 +21,8 @@ const { product } = Astro.props;
   article {
     padding: 1rem;
     background-color: antiquewhite;
+  }
+  img {
+    max-width: 100%;
   }
 </style>
