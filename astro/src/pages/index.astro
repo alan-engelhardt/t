@@ -1,13 +1,23 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import ProductCard from "../components/ProductCard.astro";
-const data = await fetch("https://kea-alt-del.dk/t7/api/products").then((res) => res.json());
-//console.log(data);
+const dummyUrl = "https://dummyjson.com/products";
+const fashionUrl = "https://kea-alt-del.dk/t7/api/products";
+const data = await fetch(fashionUrl).then((res) => res.json());
+console.log(data);
 ---
 
 <Layout>
   <h1>Products</h1>
-  <ul>
+  <main>
     {data.map((product) => <ProductCard product={product} />)}
-  </ul>
+  </main>
 </Layout>
+
+<style>
+  main {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1rem;
+  }
+</style>
