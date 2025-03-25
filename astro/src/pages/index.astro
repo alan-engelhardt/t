@@ -3,14 +3,14 @@ import Layout from "../layouts/Layout.astro";
 import ProductCard from "../components/ProductCard.astro";
 const dummyUrl = "https://dummyjson.com/products";
 const fashionUrl = "https://kea-alt-del.dk/t7/api/products";
-const data = await fetch(fashionUrl).then((res) => res.json());
+const data = await fetch(dummyUrl).then((res) => res.json());
 console.log(data);
 ---
 
 <Layout>
   <h1>Products</h1>
   <main>
-    {data.map((product) => <ProductCard product={product} />)}
+    {data.products.map((product) => <ProductCard product={product} />)}
   </main>
 </Layout>
 

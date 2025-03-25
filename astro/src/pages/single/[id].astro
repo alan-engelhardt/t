@@ -1,8 +1,9 @@
 ---
 export async function getStaticPaths() {
-  const data = await fetch("https://kea-alt-del.dk/t7/api/products").then((res) => res.json());
+  const dummyUrl = "https://dummyjson.com/products";
+  const data = await fetch(dummyUrl).then((res) => res.json());
 
-  return data.map((product) => {
+  return data.products.map((product) => {
     return {
       params: { id: product.id },
       props: { product },
@@ -14,4 +15,4 @@ const { id } = Astro.params;
 const { product } = Astro.props;
 ---
 
-<h1>{id}: {product.productdisplayname}</h1>
+<h1>{id}: {product.title}</h1>
