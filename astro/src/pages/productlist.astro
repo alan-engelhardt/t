@@ -1,7 +1,7 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import ProductCard from "../components/ProductCard.astro";
-const fashionUrl = "https://kea-alt-del.dk/t7/api/products?limit=20&category=Footwear";
+const fashionUrl = "https://kea-alt-del.dk/t7/api/products";
 const data = await fetch(fashionUrl).then((res) => res.json());
 console.log(data);
 ---
