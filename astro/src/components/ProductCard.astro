@@ -3,26 +3,23 @@ const { product } = Astro.props;
 const imagePath = `https://kea-alt-del.dk/t7/images/webp/640/${product.id}.webp`;
 ---
 
-<a href={"single/" + product.id}>
-  <article>
-    <img src={imagePath} alt="product img" />
-    <h2>{product.productdisplayname}</h2>
-    <p>{product.articletype}</p>
-    <p>{product.price} kr.</p>
-    <p>{product.category}</p>
-  </article>
-</a>
-
-<style>
-  a {
-    text-decoration: none;
-    color: inherit;
+<article class={product.soldout ? "soldOut smallProduct" : "smallProduct"}>
+  <img src=`https://kea-alt-del.dk/t7/images/webp/640/${product.id}.webp` alt="product image" />
+  <h3>{product.productdisplayname}</h3>
+  <p class="subtle">{product.articletype} | {product.brandname}</p>
+  <p class="price">DKK <span>{product.price}</span>,-</p>
+  {
+    product.discount && (
+      <div class="discounted">
+        <p>
+          Now DKK <span />
+          ,-
+        </p>
+        <p>
+          <span>{product.discount}</span>%
+        </p>
+      </div>
+    )
   }
-  article {
-    padding: 1rem;
-    background-color: antiquewhite;
-  }
-  img {
-    max-width: 100%;
-  }
-</style>
+  <a href="product/{element.id}">Read More</a>
+</article>

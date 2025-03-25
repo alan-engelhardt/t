@@ -1,23 +1,17 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import ProductCard from "../components/ProductCard.astro";
-const dummyUrl = "https://dummyjson.com/products";
-const fashionUrl = "https://kea-alt-del.dk/t7/api/products?limit=20&category=Footwear";
-const data = await fetch(fashionUrl).then((res) => res.json());
-console.log(data);
 ---
 
 <Layout>
-  <h1>Products</h1>
   <main>
-    {data.map((product) => <ProductCard product={product} />)}
+    <h2>Categories</h2>
+    <section class="categorylist">
+      <a href="productlist.html">Accessories</a>
+      <a href="productlist.html">Apparel</a>
+      <a href="productlist.html">Footwear</a>
+      <a href="productlist.html">Free Items</a>
+      <a href="productlist.html">Personal Care</a>
+      <a href="productlist.html">Sporting Goods</a>
+    </section>
   </main>
 </Layout>
-
-<style>
-  main {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 1rem;
-  }
-</style>
