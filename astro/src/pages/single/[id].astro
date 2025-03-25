@@ -1,7 +1,7 @@
 ---
 import Layout from "../../layouts/Layout.astro";
 export async function getStaticPaths() {
-  const data = await fetch("https://kea-alt-del.dk/t7/api/products").then((res) => res.json());
+  const data = await fetch("https://kea-alt-del.dk/t7/api/products?limit=20").then((res) => res.json());
 
   return data.map((product) => {
     return {

@@ -4,7 +4,7 @@ const imagePath = `https://kea-alt-del.dk/t7/images/webp/640/${product.id}.webp`
 ---
 
 <article class={product.soldout ? "soldOut smallProduct" : "smallProduct"}>
-  <img src=`https://kea-alt-del.dk/t7/images/webp/640/${product.id}.webp` alt="product image" />
+  <img src={imagePath} alt="product image" />
   <h3>{product.productdisplayname}</h3>
   <p class="subtle">{product.articletype} | {product.brandname}</p>
   <p class="price">DKK <span>{product.price}</span>,-</p>
