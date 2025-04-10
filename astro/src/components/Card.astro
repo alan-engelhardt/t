@@ -4,6 +4,7 @@ const { indhold } = Astro.props;
 
 <a href={`Single/id=${indhold.id}`}>
   <article>
+    <img src={"images/" + indhold.billede} alt="profilbillede" />
     <h2>{indhold.navn}</h2>
     {indhold.aktiv && <p>AKTIV</p>}
   </article>
